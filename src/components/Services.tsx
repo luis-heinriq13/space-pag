@@ -64,15 +64,25 @@ const Services = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in">
-          <a href="#contact" className="inline-flex items-center text-primary font-medium group">
+          <a href="#contact" className="inline-flex items-center text-brand-purple font-medium group">
             Ver todos os serviços
             <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </div>
       
-      {/* Background decoration */}
-      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-accent/5 rounded-full filter blur-3xl -translate-y-1/2"></div>
+      {/* Space themed background decoration */}
+      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-brand-purple/5 rounded-full filter blur-3xl -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-1/4 h-1/3 bg-brand-red/5 rounded-full filter blur-3xl"></div>
+      
+      {/* Add subtle stars */}
+      <div className="star w-1 h-1 top-[10%] left-[5%]"></div>
+      <div className="star w-1 h-1 top-[15%] left-[25%]"></div>
+      <div className="star w-2 h-2 top-[20%] left-[80%]"></div>
+      <div className="star w-1 h-1 top-[40%] left-[90%]"></div>
+      <div className="star w-1 h-1 top-[75%] left-[15%]"></div>
+      <div className="star w-1 h-1 top-[85%] left-[65%]"></div>
+      <div className="star w-2 h-2 top-[60%] left-[40%]"></div>
     </section>
   );
 };

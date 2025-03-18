@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 260 25% 98%;
     --foreground: 220 10% 15%;
 
     --card: 0 0% 100%;
@@ -16,24 +16,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 224 76% 53%;
+    --primary: 260 70% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 98%;
+    --secondary: 263 25% 98%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 260 40% 96.1%;
     --muted-foreground: 220 10% 45%;
 
-    --accent: 190 80% 50%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 352 80% 57%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 260 70% 65%;
 
     --radius: 0.8rem;
 
@@ -54,13 +54,13 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
+    --primary: 260 70% 65%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 352 80% 57%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -86,6 +86,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Poppins', sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Ccircle fill='%239C92AC' fill-opacity='0.1' cx='2' cy='2' r='2'/%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -111,23 +113,23 @@
 }
 
 .bg-gradient-primary {
-  @apply bg-gradient-to-r from-accent to-primary;
+  @apply bg-gradient-to-r from-brand-purple to-brand-red;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-red;
 }
 
 .btn-primary {
-  @apply px-6 py-3 font-medium text-white rounded-full bg-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out;
+  @apply px-6 py-3 font-medium text-white rounded-full bg-gradient-to-r from-brand-purple to-brand-red hover:shadow-lg hover:shadow-brand-purple/20 transition-all duration-300 ease-in-out;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 font-medium text-primary rounded-full border border-primary/30 hover:border-primary hover:shadow-md transition-all duration-300 ease-in-out;
+  @apply px-6 py-3 font-medium text-brand-purple rounded-full border border-brand-purple/30 hover:border-brand-purple hover:shadow-md transition-all duration-300 ease-in-out;
 }
 
 .highlight-chip {
-  @apply inline-block text-xs font-semibold px-3 py-1 rounded-full bg-accent/10 text-accent;
+  @apply inline-block text-xs font-semibold px-3 py-1 rounded-full bg-brand-purple/10 text-brand-purple;
 }
 
 .reveal-on-scroll {
@@ -138,7 +140,36 @@
   @apply opacity-100;
 }
 
-/* New animations */
+/* Space theme styles */
+.space-bg {
+  background-color: #1A1F2C;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(155, 135, 245, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(234, 56, 76, 0.1) 0%, transparent 40%);
+}
+
+/* Stars animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.star {
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+.star:nth-child(3n) {
+  animation-delay: 0.5s;
+}
+
+.star:nth-child(5n) {
+  animation-delay: 1s;
+}
+
+/* Keep existing animations */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
