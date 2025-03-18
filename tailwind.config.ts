@@ -68,10 +68,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					blue: "#0EA5E9",
-					"light-blue": "#38BDF8",
+					blue: "#3B82F6",
+					"light-blue": "#60A5FA",
 					purple: "#8B5CF6",
-					pink: "#EC4899"
+					pink: "#EC4899",
+					teal: "#0EA5E9",
+					orange: "#F97316"
 				}
 			},
 			borderRadius: {
@@ -122,7 +124,11 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 4s ease-in-out infinite',
 				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
-			}
+			},
+			fontFamily: {
+				'sans': ['Poppins', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")]

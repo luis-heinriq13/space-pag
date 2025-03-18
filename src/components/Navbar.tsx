@@ -27,22 +27,22 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-brand-blue">
+        <a href="#" className="text-2xl font-bold text-gradient">
           DigiMark
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex items-center space-x-6">
-            <a href="#services" className="text-sm font-medium hover:text-brand-blue transition-colors">
+            <a href="#services" className="text-sm font-medium hover:text-accent transition-colors">
               Serviços
             </a>
-            <a href="#cases" className="text-sm font-medium hover:text-brand-blue transition-colors">
+            <a href="#cases" className="text-sm font-medium hover:text-accent transition-colors">
               Casos de Sucesso
             </a>
-            <a href="#process" className="text-sm font-medium hover:text-brand-blue transition-colors">
+            <a href="#process" className="text-sm font-medium hover:text-accent transition-colors">
               Como Funciona
             </a>
-            <a href="#faq" className="text-sm font-medium hover:text-brand-blue transition-colors">
+            <a href="#faq" className="text-sm font-medium hover:text-accent transition-colors">
               FAQ
             </a>
           </nav>
@@ -67,28 +67,28 @@ const Navbar = () => {
           <nav className="flex flex-col space-y-4 py-4">
             <a 
               href="#services" 
-              className="text-sm font-medium hover:text-brand-blue transition-colors px-2 py-1"
+              className="text-sm font-medium hover:text-accent transition-colors px-2 py-1"
               onClick={() => setMobileMenuOpen(false)}
             >
               Serviços
             </a>
             <a 
               href="#cases" 
-              className="text-sm font-medium hover:text-brand-blue transition-colors px-2 py-1"
+              className="text-sm font-medium hover:text-accent transition-colors px-2 py-1"
               onClick={() => setMobileMenuOpen(false)}
             >
               Casos de Sucesso
             </a>
             <a 
               href="#process" 
-              className="text-sm font-medium hover:text-brand-blue transition-colors px-2 py-1"
+              className="text-sm font-medium hover:text-accent transition-colors px-2 py-1"
               onClick={() => setMobileMenuOpen(false)}
             >
               Como Funciona
             </a>
             <a 
               href="#faq" 
-              className="text-sm font-medium hover:text-brand-blue transition-colors px-2 py-1"
+              className="text-sm font-medium hover:text-accent transition-colors px-2 py-1"
               onClick={() => setMobileMenuOpen(false)}
             >
               FAQ

@@ -9,19 +9,19 @@ const Hero = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 max-w-2xl animate-fade-in">
-            <div className="space-y-2">
+            <div className="space-y-3">
               <span className="highlight-chip">
                 Agência de Marketing Digital
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Transforme sua presença online e <span className="text-gradient">amplie seus resultados</span>
+                Transforme sua <span className="text-gradient">presença digital</span> e amplie seus resultados
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mt-4">
+              <p className="text-lg md:text-xl text-muted-foreground mt-5">
                 Estratégias personalizadas que geram mais leads, aumentam vendas e fortalecem sua marca no ambiente digital.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a href="#contact">
                 <Button className="btn-primary group">
                   Solicite Análise Gratuita
@@ -41,16 +41,16 @@ const Hero = () => {
                 +250 projetos entregues
               </div>
               <div className="flex items-center">
-                <div className="w-4 h-4 rounded-full bg-brand-blue mr-2"></div>
+                <div className="w-4 h-4 rounded-full bg-accent mr-2"></div>
                 98% de satisfação
               </div>
             </div>
           </div>
           
-          <div className="relative h-[400px] md:h-[500px] animate-fade-in-right">
+          <div className="relative h-[400px] md:h-[500px] animate-float-slow">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-full h-full max-w-md mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-purple/20 rounded-2xl transform rotate-3 animate-float"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-2xl transform rotate-3 animate-float"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
                   alt="Equipe de marketing digital trabalhando em estratégias" 
@@ -58,7 +58,7 @@ const Hero = () => {
                 />
                 <div className="absolute -bottom-6 -left-6 glass-effect p-4 rounded-lg shadow-lg animate-bounce-subtle">
                   <div className="flex items-center gap-3">
-                    <div className="bg-green-500 text-white p-2 rounded-full">
+                    <div className="bg-gradient-to-r from-accent to-primary text-white p-2 rounded-full">
                       <ChevronRight className="h-4 w-4" />
                     </div>
                     <div>
@@ -74,8 +74,8 @@ const Hero = () => {
       </div>
       
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-blue/5 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-brand-purple/5 rounded-full filter blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-accent/5 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary/5 rounded-full filter blur-3xl"></div>
     </section>
   );
 };

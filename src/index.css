@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,8 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%;
+    --foreground: 220 10% 15%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 224 76% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 240 10% 98%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 199 89% 48%;
+    --accent: 190 80% 50%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -85,23 +85,24 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium tracking-tight;
+    font-family: 'Poppins', sans-serif;
   }
 
   .glass-effect {
-    @apply bg-white/70 backdrop-blur-lg border border-white/10 shadow-md;
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-lg;
   }
 
   .glass-card {
-    @apply bg-white/90 backdrop-blur-md border border-white/20 shadow-sm;
+    @apply bg-white/95 backdrop-blur-md border border-white/20 shadow-sm transition-all duration-300;
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 
   .container {
@@ -110,23 +111,23 @@
 }
 
 .bg-gradient-primary {
-  @apply bg-gradient-to-r from-brand-blue to-brand-purple;
+  @apply bg-gradient-to-r from-accent to-primary;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-purple;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-primary;
 }
 
 .btn-primary {
-  @apply px-6 py-3 font-medium text-white rounded-full bg-brand-blue hover:shadow-lg hover:shadow-brand-blue/20 transition-all duration-300 ease-in-out;
+  @apply px-6 py-3 font-medium text-white rounded-full bg-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 font-medium text-brand-blue rounded-full border border-brand-blue/30 hover:border-brand-blue hover:shadow-md transition-all duration-300 ease-in-out;
+  @apply px-6 py-3 font-medium text-primary rounded-full border border-primary/30 hover:border-primary hover:shadow-md transition-all duration-300 ease-in-out;
 }
 
 .highlight-chip {
-  @apply inline-block text-xs px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue font-medium;
+  @apply inline-block text-xs font-semibold px-3 py-1 rounded-full bg-accent/10 text-accent;
 }
 
 .reveal-on-scroll {
@@ -135,4 +136,32 @@
 
 .reveal-on-scroll.revealed {
   @apply opacity-100;
+}
+
+/* New animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes slide-in-bottom {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-bottom {
+  animation: slide-in-bottom 0.5s ease-out forwards;
 }

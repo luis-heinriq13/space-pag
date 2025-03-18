@@ -38,7 +38,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-secondary/50 relative">
+    <section id="services" className="section-padding bg-secondary relative">
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <span className="highlight-chip mb-2">Nossos Serviços</span>
@@ -64,7 +64,7 @@ const Services = () => {
         </div>
 
         <div className="mt-16 text-center animate-fade-in">
-          <a href="#contact" className="inline-flex items-center text-brand-blue font-medium group">
+          <a href="#contact" className="inline-flex items-center text-primary font-medium group">
             Ver todos os serviços
             <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </a>
@@ -72,7 +72,7 @@ const Services = () => {
       </div>
       
       {/* Background decoration */}
-      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-brand-blue/5 rounded-full filter blur-3xl -translate-y-1/2"></div>
+      <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-accent/5 rounded-full filter blur-3xl -translate-y-1/2"></div>
     </section>
   );
 };
