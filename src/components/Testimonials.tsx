@@ -1,7 +1,13 @@
 
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from 'react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from '@/components/ui/carousel';
+import { Star } from 'lucide-react';
 
 interface Testimonial {
   name: string;
@@ -19,7 +25,7 @@ const Testimonials = () => {
       position: "CEO",
       company: "TechSoft",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      testimonial: "A parceria com a DigiMark transformou completamente nossa presença digital. Em apenas 3 meses, aumentamos em 180% nosso tráfego orgânico e as conversões cresceram 75%.",
+      testimonial: "A parceria com a Space Digital Academy transformou completamente nossa presença digital. Em apenas 3 meses, aumentamos em 180% nosso tráfego orgânico e as conversões cresceram 75%.",
       rating: 5
     },
     {
@@ -27,7 +33,7 @@ const Testimonials = () => {
       position: "Diretor de Marketing",
       company: "Inova Shop",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      testimonial: "Nossa estratégia de marketing estava estagnada até contratarmos a DigiMark. Conseguimos uma redução de 40% no custo por lead e um aumento de 120% nas vendas online.",
+      testimonial: "Nossa estratégia de marketing estava estagnada até contratarmos a Space Digital Academy. Conseguimos uma redução de 40% no custo por lead e um aumento de 120% nas vendas online.",
       rating: 5
     },
     {
@@ -35,44 +41,53 @@ const Testimonials = () => {
       position: "Fundadora",
       company: "Bella Cosmetics",
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      testimonial: "A gestão de redes sociais da DigiMark nos ajudou a criar uma comunidade engajada em torno da nossa marca. Nosso Instagram cresceu 300% em seis meses e as vendas diretas pelas redes aumentaram 85%.",
+      testimonial: "A gestão de redes sociais da Space Digital Academy nos ajudou a criar uma comunidade engajada em torno da nossa marca. Nosso Instagram cresceu 300% em seis meses e as vendas diretas pelas redes aumentaram 85%.",
+      rating: 5
+    },
+    {
+      name: "Ricardo Santos",
+      position: "CMO",
+      company: "GlobalTech",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+      testimonial: "A equipe da Space Digital Academy é extremamente profissional e entregou além das nossas expectativas. Nosso ROI em campanhas digitais aumentou 250% em apenas 4 meses.",
+      rating: 5
+    },
+    {
+      name: "Juliana Lima",
+      position: "Diretora de Vendas",
+      company: "Smart Solutions",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+      testimonial: "Após implementar as estratégias da Space Digital Academy, conseguimos um aumento de 95% em leads qualificados e uma redução de 30% no custo de aquisição de clientes.",
       rating: 5
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const nextTestimonial = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  const prevTestimonial = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-    setTimeout(() => setIsAnimating(false), 500);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextTestimonial();
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [currentIndex, isAnimating]);
-
-  const testimonial = testimonials[currentIndex];
-
-  // Client logos
+  // Client logos with images
   const clientLogos = [
-    "TechSoft", "Inova Shop", "Bella Cosmetics",
-    "GlobalTech", "Smart Solutions", "WebPrime"
+    {
+      name: "TechSoft",
+      image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      name: "Inova Shop",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      name: "Bella Cosmetics",
+      image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      name: "GlobalTech",
+      image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      name: "Smart Solutions",
+      image: "https://images.unsplash.com/photo-1558403194-611308249627?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      name: "WebPrime",
+      image: "https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+    }
   ];
 
   return (
@@ -88,69 +103,68 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div 
-          ref={containerRef} 
-          className="max-w-4xl mx-auto glass-card rounded-2xl p-8 mb-16 relative"
-        >
-          <div className={`transition-opacity duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <div className="flex space-x-1 mb-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <blockquote className="text-lg md:text-xl font-medium italic mb-4">
-                  "{testimonial.testimonial}"
-                </blockquote>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.position}, {testimonial.company}
-                  </p>
-                </div>
-              </div>
+        <div className="max-w-4xl mx-auto mb-16">
+          <Carousel className="w-full" opts={{ loop: true, align: "start", skipSnaps: true }} autoplay={true}>
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/1">
+                  <div className="glass-card rounded-2xl p-8 h-full">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex space-x-1 mb-2">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        <blockquote className="text-lg md:text-xl font-medium italic mb-4">
+                          "{testimonial.testimonial}"
+                        </blockquote>
+                        <div>
+                          <p className="font-semibold">{testimonial.name}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {testimonial.position}, {testimonial.company}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden md:flex">
+              <CarouselPrevious className="border-brand-blue/30 hover:bg-brand-blue hover:text-white" />
+              <CarouselNext className="border-brand-blue/30 hover:bg-brand-blue hover:text-white" />
             </div>
-          </div>
-
-          <div className="absolute bottom-8 right-8 flex space-x-2">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full hover:bg-brand-blue hover:text-white border-brand-blue/30"
-              onClick={prevTestimonial}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full hover:bg-brand-blue hover:text-white border-brand-blue/30"
-              onClick={nextTestimonial}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+          </Carousel>
         </div>
 
         <div className="py-8">
           <p className="text-center text-sm text-muted-foreground mb-8">
             Empresas que confiam em nosso trabalho
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {clientLogos.map((logo, index) => (
-              <div key={index} className="glass-card px-4 py-2 rounded-lg">
-                <span className="text-lg font-semibold text-brand-blue">{logo}</span>
-              </div>
-            ))}
-          </div>
+          <Carousel className="w-full" opts={{ loop: true, align: "start", skipSnaps: false }} autoplay={true}>
+            <CarouselContent>
+              {clientLogos.map((logo, index) => (
+                <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/6">
+                  <div className="glass-card p-4 rounded-lg h-full">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="h-16 w-16 overflow-hidden rounded-full bg-white shadow-sm">
+                        <img src={logo.image} alt={logo.name} className="w-full h-full object-cover" />
+                      </div>
+                      <span className="text-sm font-semibold text-brand-blue">{logo.name}</span>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </div>
 

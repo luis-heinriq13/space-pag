@@ -52,7 +52,7 @@ const Hero = () => {
               <div className="relative w-full h-full max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-2xl transform rotate-3 animate-float"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
                   alt="Equipe de marketing digital trabalhando em estratégias" 
                   className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl"
                 />

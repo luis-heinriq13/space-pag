@@ -7,9 +7,10 @@ interface AnimatedCardProps {
   description: string;
   icon: ReactNode;
   className?: string;
+  delay?: number;
 }
 
-const AnimatedCard = ({ title, description, icon, className }: AnimatedCardProps) => {
+const AnimatedCard = ({ title, description, icon, className, delay = 0 }: AnimatedCardProps) => {
   return (
     <div 
       className={cn(
@@ -18,6 +19,7 @@ const AnimatedCard = ({ title, description, icon, className }: AnimatedCardProps
         "animate-fade-in",
         className
       )}
+      style={{ animationDelay: `${delay}s` }}
     >
       <div className="mb-4 p-3 rounded-lg bg-gradient-to-br from-brand-purple/20 to-brand-red/10 text-brand-purple">
         {icon}

@@ -59,6 +59,7 @@ const Services = () => {
               description={service.description}
               icon={service.icon}
               className="h-full"
+              delay={index * 0.1}
             />
           ))}
         </div>
