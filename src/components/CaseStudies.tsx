@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Slider } from "@/components/ui/slider";
 import { 
@@ -15,7 +14,8 @@ import {
   Mail,
   LineChart,
   PieChart,
-  MousePointer
+  MousePointer,
+  FileText
 } from 'lucide-react';
 
 const CaseStudies = () => {
