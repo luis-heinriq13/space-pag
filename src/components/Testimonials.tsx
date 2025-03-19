@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
-  CarouselNext
+  CarouselNext,
+  type CarouselApi
 } from '@/components/ui/carousel';
 import { Star } from 'lucide-react';
 
@@ -19,6 +20,32 @@ interface Testimonial {
 }
 
 const Testimonials = () => {
+  // References for carousel APIs
+  const [testimonialApi, setTestimonialApi] = React.useState<CarouselApi>();
+  const [logoApi, setLogoApi] = React.useState<CarouselApi>();
+  
+  // Setup autoplay for testimonials carousel
+  useEffect(() => {
+    if (!testimonialApi) return;
+    
+    const interval = setInterval(() => {
+      testimonialApi.scrollNext();
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [testimonialApi]);
+  
+  // Setup autoplay for logos carousel
+  useEffect(() => {
+    if (!logoApi) return;
+    
+    const interval = setInterval(() => {
+      logoApi.scrollNext();
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [logoApi]);
+
   const testimonials: Testimonial[] = [
     {
       name: "Ana Oliveira",
@@ -104,7 +131,11 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-4xl mx-auto mb-16">
-          <Carousel className="w-full" opts={{ loop: true, align: "start", skipSnaps: true }} autoplay={true}>
+          <Carousel 
+            className="w-full" 
+            opts={{ loop: true, align: "start", skipSnaps: true }}
+            setApi={setTestimonialApi}
+          >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/1">
@@ -146,10 +177,14 @@ const Testimonials = () => {
         </div>
 
         <div className="py-8">
-          <p className="text-center text-sm text-muted-foreground mb-8">
+          <p className="text-center text-base font-medium mb-8">
             Empresas que confiam em nosso trabalho
           </p>
-          <Carousel className="w-full" opts={{ loop: true, align: "start", skipSnaps: false }} autoplay={true}>
+          <Carousel 
+            className="w-full" 
+            opts={{ loop: true, align: "start", skipSnaps: false }}
+            setApi={setLogoApi}
+          >
             <CarouselContent>
               {clientLogos.map((logo, index) => (
                 <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/6">
@@ -158,7 +193,7 @@ const Testimonials = () => {
                       <div className="h-16 w-16 overflow-hidden rounded-full bg-white shadow-sm">
                         <img src={logo.image} alt={logo.name} className="w-full h-full object-cover" />
                       </div>
-                      <span className="text-sm font-semibold text-brand-blue">{logo.name}</span>
+                      <span className="text-sm font-semibold text-brand-purple">{logo.name}</span>
                     </div>
                   </div>
                 </CarouselItem>

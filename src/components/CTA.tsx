@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const CTA = () => {
   return (
@@ -17,14 +17,18 @@ const CTA = () => {
               <p className="text-muted-foreground">
                 Preencha o formulário para receber uma análise gratuita do seu negócio e um plano personalizado para aumentar seus resultados.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="space-y-3 pt-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-green-500"></div>
+                  <CheckCircle className="w-5 h-5 text-green-500" />
                   <span className="text-sm">Resposta em até 24h</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-accent"></div>
+                  <CheckCircle className="w-5 h-5 text-accent" />
                   <span className="text-sm">Sem compromisso</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-brand-purple" />
+                  <span className="text-sm">Estratégia personalizada</span>
                 </div>
               </div>
             </div>
@@ -81,6 +85,17 @@ const CTA = () => {
                     <option value="other">Outro</option>
                   </select>
                 </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1">
+                    Mensagem (opcional)
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={3}
+                    placeholder="Conte-nos sobre seu projeto ou desafio..."
+                    className="w-full px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-accent resize-none"
+                  ></textarea>
+                </div>
                 <Button className="w-full btn-primary mt-2 group">
                   Solicitar Análise Gratuita
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -94,6 +109,12 @@ const CTA = () => {
       {/* Background decorations */}
       <div className="absolute -top-24 -left-24 w-80 h-80 bg-accent/10 rounded-full filter blur-3xl animate-float"></div>
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: "2s" }}></div>
+      
+      {/* Add subtle stars */}
+      <div className="star w-1 h-1 top-[20%] left-[20%]"></div>
+      <div className="star w-2 h-2 top-[30%] left-[80%]"></div>
+      <div className="star w-1 h-1 top-[70%] left-[30%]"></div>
+      <div className="star w-1 h-1 top-[85%] left-[70%]"></div>
     </section>
   );
 };

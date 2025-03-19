@@ -8,7 +8,14 @@ import {
   Search, 
   Target, 
   BarChart2,
-  Heart 
+  Heart,
+  Globe,
+  Zap,
+  MessageCircle,
+  Mail,
+  LineChart,
+  PieChart,
+  MousePointer
 } from 'lucide-react';
 
 const CaseStudies = () => {
@@ -52,6 +59,34 @@ const CaseStudies = () => {
     }
   ];
 
+  // Digital marketing channels
+  const marketingChannels = [
+    {
+      name: "Search Engine Marketing",
+      icon: <Globe className="h-5 w-5 text-brand-purple" />,
+      metrics: "24% das conversões totais",
+      description: "Campanhas de busca paga no Google com foco em palavras-chave de alta intenção de compra."
+    },
+    {
+      name: "Social Media Marketing",
+      icon: <MessageCircle className="h-5 w-5 text-brand-purple" />,
+      metrics: "35% do engajamento total",
+      description: "Estratégias para Instagram, Facebook, LinkedIn e TikTok adaptadas ao seu público-alvo."
+    },
+    {
+      name: "Email Marketing",
+      icon: <Mail className="h-5 w-5 text-brand-purple" />,
+      metrics: "28% da taxa de abertura média",
+      description: "Campanhas de nutrição, reengajamento e conversão com segmentação avançada."
+    },
+    {
+      name: "Content Marketing",
+      icon: <FileText className="h-5 w-5 text-brand-purple" />,
+      metrics: "22% das visitas orgânicas",
+      description: "Conteúdo de valor que posiciona sua marca como autoridade no segmento."
+    }
+  ];
+
   // Marketing tools and technologies
   const marketingTools = [
     {
@@ -72,6 +107,15 @@ const CaseStudies = () => {
     }
   ];
 
+  // Customer journey metrics
+  const journeyMetrics = [
+    { stage: "Awareness", icon: <Globe className="h-4 w-4" />, metric: "128%", label: "Aumento de visibilidade" },
+    { stage: "Interest", icon: <MousePointer className="h-4 w-4" />, metric: "87%", label: "Taxa de engajamento" },
+    { stage: "Consideration", icon: <PieChart className="h-4 w-4" />, metric: "75%", label: "Aumento de tempo no site" },
+    { stage: "Action", icon: <Zap className="h-4 w-4" />, metric: "215%", label: "Crescimento de conversões" },
+    { stage: "Loyalty", icon: <Heart className="h-4 w-4" />, metric: "92%", label: "Taxa de retenção" }
+  ];
+
   return (
     <section id="cases" className="section-padding bg-secondary/50 relative">
       <div className="container mx-auto">
@@ -85,7 +129,25 @@ const CaseStudies = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* Customer Journey Metrics */}
+        <div className="glass-card rounded-xl p-6 mb-16 animate-fade-in-left">
+          <h3 className="text-xl font-semibold mb-6">Métricas da Jornada do Cliente</h3>
+          
+          <div className="flex flex-wrap justify-between gap-4">
+            {journeyMetrics.map((item, index) => (
+              <div key={index} className="text-center p-4 flex-1 min-w-[150px] border-r last:border-r-0 border-brand-purple/10">
+                <div className="mx-auto mb-3 h-10 w-10 flex items-center justify-center rounded-full bg-brand-purple/10">
+                  {item.icon}
+                </div>
+                <div className="text-2xl font-bold text-brand-purple">{item.metric}</div>
+                <div className="text-xs uppercase tracking-wider">{item.stage}</div>
+                <div className="text-sm text-muted-foreground">{item.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="space-y-8 animate-fade-in-left">
             <h3 className="text-2xl font-semibold mb-6">Métricas de Desempenho</h3>
             
@@ -125,6 +187,25 @@ const CaseStudies = () => {
           </div>
 
           <div className="space-y-8 animate-fade-in-right">
+            {/* Digital Marketing Channels */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold mb-6">Canais de Marketing Digital</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {marketingChannels.map((channel, index) => (
+                  <div key={index} className="glass-card rounded-xl p-5">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-brand-purple/10">
+                        {channel.icon}
+                      </div>
+                      <h4 className="font-medium">{channel.name}</h4>
+                    </div>
+                    <div className="text-brand-purple font-medium mb-1">{channel.metrics}</div>
+                    <p className="text-sm text-muted-foreground">{channel.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <h3 className="text-2xl font-semibold mb-6">Tecnologias & Ferramentas</h3>
             
             <div className="glass-card rounded-xl p-6 h-full space-y-8">
@@ -158,28 +239,6 @@ const CaseStudies = () => {
                   Utilizamos as ferramentas e tecnologias mais avançadas do mercado para analisar, planejar e executar 
                   estratégias de marketing digital que impulsionam seu negócio com eficiência e escala.
                 </p>
-              </div>
-            </div>
-
-            <div className="glass-card rounded-xl p-6">
-              <h4 className="text-lg font-medium mb-4">Metodologia de Trabalho</h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-3 border border-brand-purple/20 rounded-lg">
-                  <p className="text-sm font-medium">Growth Hacking</p>
-                  <p className="text-xs text-muted-foreground">Encontramos oportunidades de crescimento rápido.</p>
-                </div>
-                <div className="p-3 border border-brand-purple/20 rounded-lg">
-                  <p className="text-sm font-medium">Data-Driven</p>
-                  <p className="text-xs text-muted-foreground">Todas decisões são baseadas em dados.</p>
-                </div>
-                <div className="p-3 border border-brand-purple/20 rounded-lg">
-                  <p className="text-sm font-medium">Agile Marketing</p>
-                  <p className="text-xs text-muted-foreground">Sprints e iterações contínuas.</p>
-                </div>
-                <div className="p-3 border border-brand-purple/20 rounded-lg">
-                  <p className="text-sm font-medium">Omnichannel</p>
-                  <p className="text-xs text-muted-foreground">Experiência integrada em todos os canais.</p>
-                </div>
               </div>
             </div>
           </div>

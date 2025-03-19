@@ -1,7 +1,7 @@
 
 import React from 'react';
 import AnimatedCard from './AnimatedCard';
-import { ChevronRight, Globe, BarChart, Search, Users, PenTool, Smartphone } from 'lucide-react';
+import { ChevronRight, Globe, BarChart, Search, Users, PenTool, Smartphone, TrendingUp, Target, LineChart, FileText, Zap } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -37,6 +37,24 @@ const Services = () => {
     }
   ];
 
+  // Marketing statistics
+  const marketingStats = [
+    { value: "320%", label: "ROI médio", icon: <TrendingUp className="h-4 w-4" /> },
+    { value: "75%", label: "Aumento de conversões", icon: <Target className="h-4 w-4" /> },
+    { value: "200%", label: "Crescimento orgânico", icon: <LineChart className="h-4 w-4" /> },
+    { value: "95%", label: "Satisfação de clientes", icon: <Users className="h-4 w-4" /> }
+  ];
+
+  // Content strategy examples
+  const contentStrategies = [
+    "Storytelling para conexão emocional",
+    "Marketing de conteúdo segmentado",
+    "Análise de dados para otimização",
+    "Calendário editorial estratégico",
+    "Distribuição multicanal integrada",
+    "Conteúdo gerado por usuários"
+  ];
+
   return (
     <section id="services" className="section-padding bg-secondary relative">
       <div className="container mx-auto">
@@ -51,7 +69,23 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Marketing Statistics */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 animate-fade-in">
+          {marketingStats.map((stat, index) => (
+            <div key={index} className="glass-card p-4 rounded-xl text-center">
+              <div className="flex justify-center mb-2">
+                <div className="p-2 rounded-full bg-brand-purple/10 text-brand-purple">
+                  {stat.icon}
+                </div>
+              </div>
+              <div className="text-2xl font-bold text-brand-purple">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((service, index) => (
             <AnimatedCard
               key={index}
@@ -64,7 +98,26 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center animate-fade-in">
+        {/* Content Strategy Section */}
+        <div className="glass-card rounded-2xl p-8 mb-16 animate-fade-in">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 rounded-lg bg-gradient-to-br from-brand-purple/20 to-brand-red/10 text-brand-purple">
+              <FileText className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-semibold">Estratégias de Conteúdo</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {contentStrategies.map((strategy, index) => (
+              <div key={index} className="flex items-center gap-2 p-3 border border-brand-purple/10 rounded-lg hover:bg-brand-purple/5 transition-colors">
+                <Zap className="h-4 w-4 text-brand-purple" />
+                <span>{strategy}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 text-center animate-fade-in">
           <a href="#contact" className="inline-flex items-center text-brand-purple font-medium group">
             Ver todos os serviços
             <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
