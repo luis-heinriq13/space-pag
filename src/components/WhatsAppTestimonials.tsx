@@ -104,12 +104,12 @@ const WhatsAppTestimonials: React.FC = () => {
           <CarouselContent className="py-4">
             {whatsappMessages.map((msg) => (
               <CarouselItem key={msg.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                <div className="bg-white rounded-lg shadow-md border-l-4 border-green-500 h-full flex flex-col p-4">
+                <div className="bg-white rounded-lg shadow-md border-l-[3px] border-[#25D366] h-full flex flex-col p-4">
                   <div className="flex justify-between items-center mb-2">
                     <p className="font-medium text-gray-800">{msg.sender}</p>
                     <span className="text-xs text-gray-500 flex items-center gap-1">
                       {msg.time}
-                      {msg.isRead && <Check className="h-3 w-3 text-green-500" />}
+                      {msg.isRead && <Check className="h-3 w-3 text-[#25D366]" />}
                     </span>
                   </div>
                   <p className="text-gray-700 text-sm flex-grow">{msg.message}</p>
@@ -127,8 +127,8 @@ const WhatsAppTestimonials: React.FC = () => {
       </div>
 
       {/* Subtle decorative elements */}
-      <div className="absolute -left-10 top-1/2 w-16 h-16 bg-green-500/5 rounded-full filter blur-xl"></div>
-      <div className="absolute -right-10 top-1/3 w-16 h-16 bg-green-500/5 rounded-full filter blur-xl"></div>
+      <div className="absolute -left-10 top-1/2 w-16 h-16 bg-[#25D366]/5 rounded-full filter blur-xl"></div>
+      <div className="absolute -right-10 top-1/3 w-16 h-16 bg-[#25D366]/5 rounded-full filter blur-xl"></div>
     </div>
   );
 };
