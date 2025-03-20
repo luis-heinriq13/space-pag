@@ -119,7 +119,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-visible">
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <span className="highlight-chip mb-2">Clientes Satisfeitos</span>
@@ -180,7 +180,7 @@ const Testimonials = () => {
         {/* WhatsApp Testimonials */}
         <WhatsAppTestimonials />
 
-        <div className="py-8">
+        <div className="py-8 mt-8">
           <p className="text-center text-base font-medium mb-8">
             Empresas que confiam em nosso trabalho
           </p>
@@ -207,8 +207,8 @@ const Testimonials = () => {
         </div>
       </div>
 
-      {/* Background decoration */}
-      <div className="absolute top-1/2 right-0 w-1/3 h-1/2 bg-brand-purple/5 rounded-full filter blur-3xl -translate-y-1/2"></div>
+      {/* Background decoration - reduced opacity and size to avoid overlap */}
+      <div className="absolute top-1/2 right-0 w-1/4 h-1/3 bg-brand-purple/3 rounded-full filter blur-3xl -translate-y-1/2"></div>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { 
   Carousel,
   CarouselContent,
@@ -89,8 +89,8 @@ const WhatsAppTestimonials: React.FC = () => {
   ];
 
   return (
-    <div className="py-10 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+    <div className="py-10 relative mt-8 mb-16">
+      <div className="max-w-5xl mx-auto px-4">
         <h3 className="text-center text-xl font-semibold mb-8 flex items-center justify-center gap-2">
           <MessageCircle className="h-5 w-5 text-green-500" />
           Conversas reais com nossos clientes
@@ -104,7 +104,7 @@ const WhatsAppTestimonials: React.FC = () => {
           <CarouselContent className="py-4">
             {whatsappMessages.map((msg) => (
               <CarouselItem key={msg.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                <div className="whatsapp-message-card p-4 bg-white rounded-lg shadow-md border-l-4 border-green-500 h-full flex flex-col">
+                <div className="bg-white rounded-lg shadow-md border-l-4 border-green-500 h-full flex flex-col p-4">
                   <div className="flex justify-between items-center mb-2">
                     <p className="font-medium text-gray-800">{msg.sender}</p>
                     <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -126,9 +126,9 @@ const WhatsAppTestimonials: React.FC = () => {
         </Carousel>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute -left-10 top-1/2 w-20 h-20 bg-green-500/10 rounded-full filter blur-xl"></div>
-      <div className="absolute -right-10 top-1/3 w-20 h-20 bg-green-500/10 rounded-full filter blur-xl"></div>
+      {/* Subtle decorative elements */}
+      <div className="absolute -left-10 top-1/2 w-16 h-16 bg-green-500/5 rounded-full filter blur-xl"></div>
+      <div className="absolute -right-10 top-1/3 w-16 h-16 bg-green-500/5 rounded-full filter blur-xl"></div>
     </div>
   );
 };
