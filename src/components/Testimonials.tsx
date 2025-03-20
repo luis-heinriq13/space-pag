@@ -9,6 +9,7 @@ import {
   type CarouselApi
 } from '@/components/ui/carousel';
 import { Star } from 'lucide-react';
+import WhatsAppTestimonials from './WhatsAppTestimonials';
 
 interface Testimonial {
   name: string;
@@ -175,6 +176,9 @@ const Testimonials = () => {
             </div>
           </Carousel>
         </div>
+
+        {/* WhatsApp Testimonials */}
+        <WhatsAppTestimonials />
 
         <div className="py-8">
           <p className="text-center text-base font-medium mb-8">
